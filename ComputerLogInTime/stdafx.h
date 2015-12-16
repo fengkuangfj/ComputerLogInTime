@@ -15,6 +15,11 @@
 #include <conio.h>
 #include <Shlwapi.h>
 #include <WinEvt.h>
+#include <Iads.h>
+#include <Adshlp.h>
+#include <Objbase.h>
 
 #pragma comment(lib, "Shlwapi.lib")
 #pragma comment(lib, "Wevtapi.lib")
+#pragma comment(lib, "Activeds.lib")
+#pragma comment(lib, "Ole32.lib")
