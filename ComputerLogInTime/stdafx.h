@@ -10,6 +10,11 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
-
 // TODO: 在此处引用程序需要的其他头文件
+#include <Windows.h>
+#include <conio.h>
+#include <Shlwapi.h>
+#include <WinEvt.h>
+
+#pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "Wevtapi.lib")
