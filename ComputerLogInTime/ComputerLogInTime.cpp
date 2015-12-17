@@ -269,21 +269,23 @@ BOOL
 	IID			IID_IADsUser	= {0x3E37E320, 0x17E2, 0x11CF, {0xAB, 0xC4, 0x02, 0x60, 0x8C, 0x9E, 0x75, 0x53}};
 	IADsUser *	pIADsUser		= NULL;
 	VARIANT		vLoginHours		= {0};
+	DATE		Date			= 0;
 
 
 	__try
 	{
 		CoInitialize(NULL);
 
-		// hResult = ADsGetObject(_T("WinNT://irtouch.local/YueXiang"), IID_IADsUser, (VOID**)&pIADsUser);
-		hResult = ADsGetObject(_T("WinNT://./Administrator"), IID_IADsUser, (VOID**)&pIADsUser);
+		hResult = ADsGetObject(_T("WinNT://irtouch.local/YueXiang"), IID_IADsUser, (VOID**)&pIADsUser);
+		// hResult = ADsGetObject(_T("WinNT://./Administrator"), IID_IADsUser, (VOID**)&pIADsUser);
 		if (FAILED(hResult)) 
 			__leave;
 
 		if (!pIADsUser)
 			__leave;
 
-		hResult = pIADsUser->get_LoginHours(&vLoginHours);
+		// hResult = pIADsUser->get_LoginHours(&vLoginHours);
+		hResult = pIADsUser->get_LastLogin(&Date);
 		if (FAILED(hResult)) 
 			__leave;
 
@@ -299,8 +301,8 @@ BOOL
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	// GetLogInTime();
-	UseIADsUser();
+	GetLogInTime();
+	// UseIADsUser();
 
 	_getch();
 
